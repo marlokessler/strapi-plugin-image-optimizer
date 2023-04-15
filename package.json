@@ -1,0 +1,76 @@
+{
+  "name": "strapi-plugin-image-optimizer",
+  "version": "0.0.0-development",
+  "description": "Optimize your images for desktop, tablet and mobile and different image formats.",
+  "homepage": "https://github.com/marlokessler/strapi-plugin-image-optimizer#readme",
+  "license": "MIT",
+  "main": "strapi-server.js",
+  "strapi": {
+    "displayName": "Image Optimizer",
+    "name": "image-optimizer",
+    "description": "Optimize your images for desktop, tablet and mobile and different image formats.",
+    "kind": "plugin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marlokessler/strapi-plugin-image-optimizer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marlokessler/strapi-plugin-image-optimizer/issues"
+  },
+  "author": {
+    "name": "Marlo Kessler (https://github.com/marlokessler)"
+  },
+  "maintainers": [
+    {
+      "name": "Marlo Kessler (https://github.com/marlokessler)"
+    }
+  ],
+  "keywords": [
+    "strapi",
+    "image-optimize",
+    "image",
+    "optimize",
+    "responsive"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "tag": "latest"
+  },
+  "release": {
+    "branches": [
+      "main",
+      {
+        "name": "beta",
+        "prerelease": true
+      }
+    ]
+  },
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x",
+    "npm": ">=6.0.0"
+  },
+  "dependencies": {
+    "@strapi/design-system": "^1.6.3",
+    "@strapi/helper-plugin": "^4.6.0",
+    "@strapi/icons": "^1.6.3",
+    "prop-types": "^15.7.2"
+  },
+  "devDependencies": {
+    "@strapi/typescript-utils": "^4.6.0",
+    "typescript": "4.6.3",
+    "all-contributors-cli": "^6.20.0",
+    "semantic-release": "^21.0.1"
+  },
+  "peerDependencies": {
+    "@strapi/strapi": "^4.0.8",
+    "@strapi/utils": "^4.0.8",
+    "yup": "^0.32.9"
+  },
+  "scripts": {
+    "install:apple_arm": "npm_config_build_from_source=true yarn install",
+    "develop": "tsc -w",
+    "build": "tsc",
+    "semantic-release": "semantic-release"
+  }
+}
