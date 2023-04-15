@@ -1,5 +1,7 @@
 # Strapi-plugin-image-optimizer
 
+![License](https://img.shields.io/github/license/marlokessler/strapi-plugin-image-optimizer)
+
 ## Table of contents
 
 - [Requirements](#requirements)
