@@ -1,10 +1,16 @@
-name: CI
+name: Deploy
+
 on:
-  push:
-    branches: [main, beta]
-  workflow_dispatch:
-jobs:
   release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout project
@@ -22,8 +28,7 @@ jobs:
       - name: Transpile Typescript
         run: yarn build
 
-      - name: Release to NPM
+      - name: Publish to NPM
+        run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
