@@ -1,6 +1,10 @@
 # Strapi-plugin-image-optimizer
 
+![Version](https://img.shields.io/npm/v/strapi-plugin-image-optimizer?label=strapi-plugin-image-optimizer)
 ![License](https://img.shields.io/github/license/marlokessler/strapi-plugin-image-optimizer)
+![Dependencies](https://img.shields.io/librariesio/github/marlokessler/strapi-plugin-image-optimizer)
+![Downloads](https://img.shields.io/npm/dt/marlokessler/strapi-plugin-image-optimizer)
+![Deployment](https://img.shields.io/github/actions/workflow/status/marlokessler/strapi-plugin-image-optimizer/deploy)
 
 ## Table of contents
 
