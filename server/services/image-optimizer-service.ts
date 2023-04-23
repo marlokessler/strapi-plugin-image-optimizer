@@ -7,26 +7,26 @@ import imageManipulation from "@strapi/plugin-upload/server/services/image-manip
 
 import settingsService from "./settings-service";
 import {
-  ImageFormatType,
+  OutputFormat,
   ImageSize,
   InvalidParametersError,
   File,
   SourceFile,
-  ImageFormat,
+  StrapiImageFormat,
+  SourceFormat,
 } from "../models";
 
-const defaultFormats: ImageFormatType[] = ["original", "webp", "avif"];
-const defaultInclude: (keyof FormatEnum)[] = ["jpeg", "jpg", "png"];
-const defaultSizes: ImageSize[] = [];
+const defaultFormats: OutputFormat[] = ["original", "webp", "avif"];
+const defaultInclude: SourceFormat[] = ["jpeg", "jpg", "png"];
 const defaultQuality = 80;
 
-async function optimizeImage(file: SourceFile): Promise<ImageFormat[]> {
+async function optimizeImage(file: SourceFile): Promise<StrapiImageFormat[]> {
   // Get config
   const {
     exclude = [],
     formats = defaultFormats,
     include = defaultInclude,
-    sizes = defaultSizes,
+    sizes,
     additionalResolutions,
     quality = defaultQuality,
   } = settingsService.settings;
@@ -36,7 +36,7 @@ async function optimizeImage(file: SourceFile): Promise<ImageFormat[]> {
     return Promise.all([]);
   }
 
-  const imageFormatPromises: Promise<ImageFormat>[] = [];
+  const imageFormatPromises: Promise<StrapiImageFormat>[] = [];
 
   formats.forEach((format) => {
     sizes.forEach((size) => {
@@ -56,11 +56,11 @@ async function optimizeImage(file: SourceFile): Promise<ImageFormat[]> {
 
 async function generateImage(
   sourceFile: SourceFile,
-  format: ImageFormatType,
+  format: OutputFormat,
   size: ImageSize,
   quality: number,
   resizeFactor = 1
-): Promise<ImageFormat> {
+): Promise<StrapiImageFormat> {
   const resizeFactorPart = resizeFactor === 1 ? "" : `_${resizeFactor}x`;
   const sizeName = `${size.name}${resizeFactorPart}`;
   const formatPart = format === "original" ? "" : `_${format}`;
@@ -80,7 +80,7 @@ async function generateImage(
 async function resizeFileTo(
   sourceFile: SourceFile,
   sizeName: string,
-  format: ImageFormatType,
+  format: OutputFormat,
   size: ImageSize,
   quality: number,
   resizeFactor: number
@@ -170,11 +170,11 @@ function getFileName(sourceFile: File, sizeName: string) {
   return `${sizeName}_${fileNameWithoutExtension}`;
 }
 
-function getFileExtension(sourceFile: File, format: ImageFormatType) {
+function getFileExtension(sourceFile: File, format: OutputFormat) {
   return format === "original" ? sourceFile.ext : `.${format}`;
 }
 
-function getFileMimeType(sourceFile: File, format: ImageFormatType) {
+function getFileMimeType(sourceFile: File, format: OutputFormat) {
   return format === "original" ? sourceFile.mime : `image/${format}`;
 }
 

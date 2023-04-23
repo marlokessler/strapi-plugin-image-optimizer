@@ -1,6 +1,6 @@
 import { File } from ".";
 
-export interface ImageFormat {
+export interface StrapiImageFormat {
   key: string;
   file: File;
 }

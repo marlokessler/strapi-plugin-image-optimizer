@@ -8,15 +8,15 @@ export interface Config {
   /**
    * The image formats to exclude. Exclude takes precedence over include. Default is [].
    */
-  exclude?: (keyof FormatEnum)[];
+  exclude?: SourceFormat[];
   /**
    * The image formats to generate. Default is ["original", "webp", "avif"].
    */
-  formats?: ImageFormatType[];
+  formats?: OutputFormat[];
   /**
    * The image formats to include. Exclude takes precedence over include. Default is ["jpeg", "jpg", "png"].
    */
-  include?: (keyof FormatEnum)[];
+  include?: SourceFormat[];
   /**
    * The image sizes to generate. Default is [].
    */
@@ -29,7 +29,7 @@ export interface Config {
 
 export interface ImageSize {
   /**
-   * The name of the size. This will be used as part of generated image's name.
+   * The name of the size. This will be used as part of generated image's name and url.
    */
   name: string;
   /**
@@ -43,18 +43,22 @@ export interface ImageSize {
   /**
    * The image fit mode if both width and height are specified. Default is cover.
    */
-  fit: keyof FitEnum;
+  fit?: ImageFit;
   /**
    * The position of the image within the output image. This option is only used when fit is cover or contain. Default is center.
    */
-  position: ImagePosition;
+  position?: ImagePosition;
   /**
    * When true, the image will not be enlarged if the input image is already smaller than the required dimensions. Default is false.
    */
   withoutEnlargement?: boolean;
 }
 
-export type ImageFormatType = "original" | keyof FormatEnum;
+export type SourceFormat = keyof FormatEnum;
+
+export type OutputFormat = "original" | SourceFormat;
+
+export type ImageFit = keyof FitEnum;
 
 export type ImagePosition =
   | "top"
