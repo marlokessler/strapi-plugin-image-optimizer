@@ -16,7 +16,7 @@ jobs:
           node-version: "18.x"
           registry-url: "https://registry.npmjs.org/"
 
-      - name: Install deps
+      - name: Install dependencies
         run: yarn install --frozen-lockfile
 
       - name: Transpile Typescript
@@ -25,5 +25,5 @@ jobs:
       - name: Release to NPM
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release

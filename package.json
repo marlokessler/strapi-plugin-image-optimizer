@@ -58,15 +58,16 @@
   },
   "devDependencies": {
     "@strapi/typescript-utils": "^4.6.0",
-    "typescript": "4.6.3",
-    "semantic-release": "^21.0.1"
+    "semantic-release": "^21.0.1",
+    "typescript": "4.6.3"
   },
   "peerDependencies": {
     "@strapi/strapi": "^4.0.8",
     "@strapi/utils": "^4.0.8",
-    "yup": "^0.32.9"
+    "yup": "^1.1.1"
   },
   "scripts": {
+    "add:apple_arm": "npm_config_build_from_source=true yarn add",
     "install:apple_arm": "npm_config_build_from_source=true yarn install",
     "develop": "tsc -w",
     "build": "tsc",
