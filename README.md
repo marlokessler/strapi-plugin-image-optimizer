@@ -1,4 +1,7 @@
 # Strapi-plugin-image-optimizer
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![Version](https://img.shields.io/npm/v/strapi-plugin-image-optimizer?label=strapi-plugin-image-optimizer)
 ![License](https://img.shields.io/github/license/marlokessler/strapi-plugin-image-optimizer)
@@ -181,6 +184,21 @@ If you found a bug or have any questions please [submit an issue](https://github
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/marlokessler"><img src="https://avatars.githubusercontent.com/u/48910761?v=4?s=100" width="100px;" alt="Marlo Kesser"/><br /><sub><b>Marlo Kesser</b></sub></a><br /><a href="#infra-marlokessler" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/marlokessler/strapi-plugin-image-optimizer/commits?author=marlokessler" title="Tests">⚠️</a> <a href="https://github.com/marlokessler/strapi-plugin-image-optimizer/commits?author=marlokessler" title="Code">💻</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
