@@ -22,7 +22,7 @@
   - [Example config](#example-config)
 - [Usage](#usage)
 - [Found a bug?](#found-a-bug)
-- [Contributors](#contributors-✨)
+- [Contributors](#contributors-)
 
 ## Requirements
 
