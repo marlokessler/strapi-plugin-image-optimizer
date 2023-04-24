@@ -4,7 +4,7 @@
 ![License](https://img.shields.io/github/license/marlokessler/strapi-plugin-image-optimizer)
 ![Dependencies](https://img.shields.io/librariesio/github/marlokessler/strapi-plugin-image-optimizer)
 ![Downloads](https://img.shields.io/npm/dt/marlokessler/strapi-plugin-image-optimizer)
-![Deployment](https://img.shields.io/github/actions/workflow/status/marlokessler/strapi-plugin-image-optimizer/deploy)
+[![Deploy](https://github.com/marlokessler/strapi-plugin-image-optimizer/actions/workflows/deploy.yml/badge.svg)](https://github.com/marlokessler/strapi-plugin-image-optimizer/actions/workflows/deploy.yml)
 
 ## Table of contents
 
