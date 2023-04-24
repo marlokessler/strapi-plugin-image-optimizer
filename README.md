@@ -1,13 +1,11 @@
 # Strapi-plugin-image-optimizer
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![Version](https://img.shields.io/npm/v/strapi-plugin-image-optimizer?label=strapi-plugin-image-optimizer)
-![License](https://img.shields.io/github/license/marlokessler/strapi-plugin-image-optimizer)
+[![License](https://img.shields.io/github/license/marlokessler/strapi-plugin-image-optimizer)](https://github.com/marlokessler/strapi-plugin-image-optimizer/blob/main/LICENSE)
 ![Dependencies](https://img.shields.io/librariesio/github/marlokessler/strapi-plugin-image-optimizer)
 ![Downloads](https://img.shields.io/npm/dt/marlokessler/strapi-plugin-image-optimizer)
 [![Deploy](https://github.com/marlokessler/strapi-plugin-image-optimizer/actions/workflows/deploy.yml/badge.svg)](https://github.com/marlokessler/strapi-plugin-image-optimizer/actions/workflows/deploy.yml)
+[![All Contributors](https://img.shields.io/github/all-contributors/marlokessler/strapi-plugin-image-optimizer)](#contributors-)
 
 ## Table of contents
 
