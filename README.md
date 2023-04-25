@@ -1,4 +1,6 @@
-# Strapi-plugin-image-optimizer
+<img src="assets/logo.png" alt="image optimizer logo" width="75"/>
+
+# Strapi plugin image optimizer
 
 ![Version](https://img.shields.io/npm/v/strapi-plugin-image-optimizer?label=strapi-plugin-image-optimizer)
 [![License](https://img.shields.io/github/license/marlokessler/strapi-plugin-image-optimizer)](https://github.com/marlokessler/strapi-plugin-image-optimizer/blob/main/LICENSE)
@@ -182,6 +184,7 @@ If you found a bug or have any questions please [submit an issue](https://github
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
