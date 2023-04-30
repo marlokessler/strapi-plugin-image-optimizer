@@ -5,7 +5,6 @@
 ![Version](https://img.shields.io/npm/v/strapi-plugin-image-optimizer?label=strapi-plugin-image-optimizer)
 [![License](https://img.shields.io/github/license/marlokessler/strapi-plugin-image-optimizer)](https://github.com/marlokessler/strapi-plugin-image-optimizer/blob/main/LICENSE)
 ![Dependencies](https://img.shields.io/librariesio/github/marlokessler/strapi-plugin-image-optimizer)
-![Downloads](https://img.shields.io/npm/dt/marlokessler/strapi-plugin-image-optimizer)
 [![Deploy](https://github.com/marlokessler/strapi-plugin-image-optimizer/actions/workflows/deploy.yml/badge.svg)](https://github.com/marlokessler/strapi-plugin-image-optimizer/actions/workflows/deploy.yml)
 [![All Contributors](https://img.shields.io/github/all-contributors/marlokessler/strapi-plugin-image-optimizer)](#contributors-)
 
@@ -13,8 +12,9 @@
 
 - [Requirements](#requirements)
 - [Installation](#installation)
-  - [1. Extend Strapi's upload plugin](#1-extend-strapis-upload-plugin)
-  - [2. Add config options](#2-add-config-options)
+  - [1. Install package](#1-install-package)
+  - [2. Extend Strapi's upload plugin](#2-extend-strapis-upload-plugin)
+  - [3. Add config options](#3-add-config-options)
 - [Config options](#config-options)
   - [Object `Config`](#object-config)
   - [Object `ImageSize`](#object-imagesize)
@@ -33,7 +33,11 @@ Strapi Version >= v4.6.x
 
 ## Installation
 
-### 1. Extend Strapi's upload plugin
+### 1. Install package
+
+Install the package via `npm install strapi-plugin-image-optimizer` or `yarn add strapi-plugin-image-optimizer`
+
+### 2. Extend Strapi's upload plugin
 
 To make this plugin work, you need to enter the following code to `./src/extensions/upload/strapi-server.ts`. If file and folders do not exist, you need to create them. This code overrides the default image manipulation service of Strapi's `upload` plugin.
 
@@ -48,7 +52,7 @@ module.exports = (plugin) => {
 };
 ```
 
-### 2. Add config options
+### 3. Add config options
 
 Configure the plugin in the `.config/plugins.js/ts` file of your Strapi project.
 
