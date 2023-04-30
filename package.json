@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-image-optimizer",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Optimize your images for desktop, tablet and mobile and different image formats.",
   "homepage": "https://github.com/marlokessler/strapi-plugin-image-optimizer#readme",
   "license": "MIT",
@@ -50,25 +50,20 @@
     "node": ">=14.19.1 <=18.x.x",
     "npm": ">=6.0.0"
   },
-  "dependencies": {
-    "@strapi/design-system": "^1.6.3",
-    "@strapi/helper-plugin": "^4.6.0",
-    "@strapi/icons": "^1.6.3",
-    "prop-types": "^15.7.2"
-  },
   "devDependencies": {
-    "@strapi/typescript-utils": "^4.6.0",
+    "@strapi/typescript-utils": "^4.10.1",
     "install-peers": "^1.0.4",
-    "typescript": "4.6.3"
+    "typescript": "^5.0.4"
   },
   "peerDependencies": {
-    "@strapi/strapi": "^4.0.8",
-    "@strapi/utils": "^4.0.8",
+    "@strapi/strapi": "^4.6.0",
+    "@strapi/utils": "^4.6.0",
     "yup": "^1.1.1"
   },
   "scripts": {
     "add:apple_arm": "npm_config_build_from_source=true yarn add",
     "install:apple_arm": "npm_config_build_from_source=true yarn install",
+    "upgrade:apple_arm": "npm_config_build_from_source=true yarn upgrade",
     "develop": "tsc -w",
     "build": "tsc"
   }
