@@ -35,7 +35,7 @@ Strapi Version >= v4.6.x
 
 ### 1. Install package
 
-Install the package via `npm install strapi-plugin-image-optimizer` or `yarn add strapi-plugin-image-optimizer`
+Install the package via `npm install strapi-plugin-image-optimizer` or `yarn add strapi-plugin-image-optimizer`.
 
 ### 2. Extend Strapi's upload plugin
 
