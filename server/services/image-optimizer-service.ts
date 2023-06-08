@@ -32,7 +32,7 @@ async function optimizeImage(file: SourceFile): Promise<StrapiImageFormat[]> {
   } = settingsService.settings;
 
   const sourceFileType = file.ext.replace(".", "") as keyof FormatEnum;
-  if (exclude.includes(sourceFileType) || !include.includes(sourceFileType)) {
+  if (exclude.includes(sourceFileType) || !include.includes(sourceFileType.toLowerCase())) {
     return Promise.all([]);
   }
 
