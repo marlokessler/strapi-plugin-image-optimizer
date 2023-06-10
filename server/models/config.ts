@@ -1,5 +1,3 @@
-import { FormatEnum, FitEnum } from "sharp";
-
 export interface Config {
   /**
    * Additional resolutions to generate. The value is the factor by which the original image is multiplied. For example, if the original image is 1000x1000 and the factor is 2, then the generated image will be 2000x2000.
@@ -54,11 +52,32 @@ export interface ImageSize {
   withoutEnlargement?: boolean;
 }
 
-export type SourceFormat = keyof FormatEnum;
+export type SourceFormat =
+  | "avif"
+  | "dz"
+  | "fits"
+  | "gif"
+  | "heif"
+  | "input"
+  | "jpeg"
+  | "jpg"
+  | "jp2"
+  | "jxl"
+  | "magick"
+  | "openslide"
+  | "pdf"
+  | "png"
+  | "ppm"
+  | "raw"
+  | "svg"
+  | "tiff"
+  | "tif"
+  | "v"
+  | "webp";
 
 export type OutputFormat = "original" | SourceFormat;
 
-export type ImageFit = keyof FitEnum;
+export type ImageFit = "contain" | "cover" | "fill" | "inside" | "outside";
 
 export type ImagePosition =
   | "top"

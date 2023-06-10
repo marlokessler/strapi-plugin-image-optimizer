@@ -1,6 +1,6 @@
 import { ReadStream, createReadStream, createWriteStream } from "fs";
 import { join } from "path";
-import sharp, { Sharp, Metadata, FormatEnum, format } from "sharp";
+import sharp, { Sharp, Metadata } from "sharp";
 
 import { bytesToKbytes } from "@strapi/utils/lib/file";
 import imageManipulation from "@strapi/plugin-upload/server/services/image-manipulation";
@@ -31,10 +31,10 @@ async function optimizeImage(file: SourceFile): Promise<StrapiImageFormat[]> {
     quality = defaultQuality,
   } = settingsService.settings;
 
-  const sourceFileType = file.ext.replace(".", "") as keyof FormatEnum;
+  const sourceFileType = file.ext.replace(".", "");
   if (
-    exclude.includes(sourceFileType.toLowerCase()) ||
-    !include.includes(sourceFileType.toLowerCase())
+    exclude.includes(sourceFileType.toLowerCase() as SourceFormat) ||
+    !include.includes(sourceFileType.toLowerCase() as SourceFormat)
   ) {
     return Promise.all([]);
   }
