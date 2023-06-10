@@ -29,7 +29,7 @@
 
 ## Requirements
 
-Strapi Version >= v4.6.x
+Strapi version >= v4.6.x
 
 ## Installation
 

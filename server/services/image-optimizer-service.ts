@@ -32,7 +32,10 @@ async function optimizeImage(file: SourceFile): Promise<StrapiImageFormat[]> {
   } = settingsService.settings;
 
   const sourceFileType = file.ext.replace(".", "") as keyof FormatEnum;
-  if (exclude.includes(sourceFileType.toLowerCase()) || !include.includes(sourceFileType.toLowerCase())) {
+  if (
+    exclude.includes(sourceFileType.toLowerCase()) ||
+    !include.includes(sourceFileType.toLowerCase())
+  ) {
     return Promise.all([]);
   }
 
@@ -133,7 +136,7 @@ function sharpAddResizeSettings(
 ): Sharp {
   if (!size.width && !size.height) {
     throw new InvalidParametersError(
-      "Either width or height must be specified"
+      "Either width or height must be specified."
     );
   }
   return sharpInstance.resize({
