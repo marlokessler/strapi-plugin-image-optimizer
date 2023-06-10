@@ -196,6 +196,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/marlokessler"><img src="https://avatars.githubusercontent.com/u/48910761?v=4?s=100" width="100px;" alt="Marlo Kesser"/><br /><sub><b>Marlo Kesser</b></sub></a><br /><a href="#infra-marlokessler" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/marlokessler/strapi-plugin-image-optimizer/commits?author=marlokessler" title="Tests">⚠️</a> <a href="https://github.com/marlokessler/strapi-plugin-image-optimizer/commits?author=marlokessler" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.linkedin.com/in/yaroslav-zakhidnyi/"><img src="https://avatars.githubusercontent.com/u/32482428?v=4?s=100" width="100px;" alt="Yaroslav Zakhidnyi"/><br /><sub><b>Yaroslav Zakhidnyi</b></sub></a><br /><a href="https://github.com/marlokessler/strapi-plugin-image-optimizer/issues?q=author%3Ayarikwest" title="Bug reports">🐛</a> <a href="https://github.com/marlokessler/strapi-plugin-image-optimizer/commits?author=yarikwest" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
