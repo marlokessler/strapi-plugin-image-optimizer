@@ -31,6 +31,10 @@
 
 Strapi version >= v4.6.x
 
+## Note
+
+This plugin uses [sharp](https://sharp.pixelplumbing.com/) provided via [strapi core](https://github.com/strapi/strapi/blob/3bfe1c913cf037c85a167f83a4bda0d848c9ba50/packages/core/upload/package.json#L52). All settings and options are documented in more detail in the [sharp API documentation](https://sharp.pixelplumbing.com/api-resize).
+
 ## Installation
 
 ### 1. Install package
