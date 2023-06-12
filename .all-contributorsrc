@@ -26,6 +26,16 @@
         "bug",
         "code"
       ]
+    },
+    {
+      "login": "JosefBredereck",
+      "name": "Josef Bredreck",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13408112?v=4",
+      "profile": "https://github.com/JosefBredereck",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
