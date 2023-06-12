@@ -92,7 +92,12 @@ async function resizeFileTo(
     sharpInstance = sharpInstance.toFormat(format);
   }
   sharpInstance = sharpAddFormatSettings(sharpInstance, { quality });
-  sharpInstance = sharpAddResizeSettings(sharpInstance, size, resizeFactor);
+  sharpInstance = sharpAddResizeSettings(
+    sharpInstance,
+    size,
+    resizeFactor,
+    sourceFile
+  );
 
   const imageHash = `${sizeName}_${sourceFile.hash}`;
   const filePath = join(sourceFile.tmpWorkingDirectory, imageHash);
@@ -134,11 +139,17 @@ function sharpAddFormatSettings(
 function sharpAddResizeSettings(
   sharpInstance: Sharp,
   size: ImageSize,
-  factor: number
+  factor: number,
+  sourceFile: SourceFile
 ): Sharp {
+  const originalSize = !size.width && !size.height;
+  const { width, height } = originalSize
+    ? { width: sourceFile.width, height: sourceFile.height }
+    : { width: size.width, height: size.height };
+
   return sharpInstance.resize({
-    width: size.width && size.width * factor,
-    height: size.height && size.height * factor,
+    width: width ? width * factor : undefined,
+    height: height ? height * factor : undefined,
     fit: size.fit,
     // Position "center" cannot be set since it's the default (see: https://sharp.pixelplumbing.com/api-resize#resize).
     position: size.position === "center" ? undefined : size.position,
