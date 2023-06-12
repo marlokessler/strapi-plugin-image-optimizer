@@ -80,6 +80,8 @@ Configure the plugin in the `.config/plugins.js/ts` file of your Strapi project.
 | `width`              | `number` <br/> Min: 0                  | The width of the output image in pixels. If only width is specified then the height is calculated with the original aspect ratio.  |
 | `withoutEnlargement` | `boolean`                              | When true, the image will not be enlarged if the input image is already smaller than the required dimensions. Default is `false`.  |
 
+If both width and height are not set, the output will be the same size as the original. This allows for transforming into different formats with the original size.
+
 ### Type `SourceFormat`
 
 ```typescript
@@ -106,6 +108,8 @@ type SourceFormat =
   | "v"
   | "webp";
 ```
+
+Only jpeg/png/webp/avif/heif/tiff will adjust quality.
 
 ### Type `OutputFormat`
 
@@ -153,20 +157,26 @@ export default ({ env }) => ({
           width: 300,
         },
         {
-          name: "s",
+          name: "sm",
           width: 768,
         },
         {
-          name: "m",
+          name: "md",
           width: 1280,
         },
         {
-          name: "l",
+          name: "lg",
           width: 1920,
         },
         {
           name: "xl",
           width: 2840,
+          // Won't create an image larger than the original size
+          withoutEnlargement: true,
+        },
+        {
+          // Uses original size but still transforms for formats
+          name: "original",
         },
       ],
       additionalResolutions: [1.5, 3],

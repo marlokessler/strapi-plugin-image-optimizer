@@ -5,16 +5,15 @@ import sharp, { Sharp, Metadata } from "sharp";
 import { bytesToKbytes } from "@strapi/utils/lib/file";
 import imageManipulation from "@strapi/plugin-upload/server/services/image-manipulation";
 
-import settingsService from "./settings-service";
 import {
   OutputFormat,
   ImageSize,
-  InvalidParametersError,
   File,
   SourceFile,
   StrapiImageFormat,
   SourceFormat,
 } from "../models";
+import settingsService from "./settings-service";
 
 const defaultFormats: OutputFormat[] = ["original", "webp", "avif"];
 const defaultInclude: SourceFormat[] = ["jpeg", "jpg", "png"];
@@ -118,6 +117,7 @@ function sharpAddFormatSettings(
   sharpInstance: Sharp,
   { quality }: { quality?: number }
 ): Sharp {
+  // TODO: Add jxl when it's no longer experimental
   return sharpInstance
     .jpeg({ quality, progressive: true, force: false })
     .png({
@@ -126,6 +126,8 @@ function sharpAddFormatSettings(
       force: false,
     })
     .webp({ quality, force: false })
+    .avif({ quality, force: false })
+    .heif({ quality, force: false })
     .tiff({ quality, force: false });
 }
 
@@ -134,11 +136,6 @@ function sharpAddResizeSettings(
   size: ImageSize,
   factor: number
 ): Sharp {
-  if (!size.width && !size.height) {
-    throw new InvalidParametersError(
-      "Either width or height must be specified."
-    );
-  }
   return sharpInstance.resize({
     width: size.width && size.width * factor,
     height: size.height && size.height * factor,
