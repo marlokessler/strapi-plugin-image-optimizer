@@ -18,7 +18,7 @@ export interface Config {
   /**
    * The image sizes to generate. Default is [].
    */
-  sizes?: ImageSize[];
+  sizes: ImageSize[];
   /**
    * The quality of the generated images. Default is 80.
    */

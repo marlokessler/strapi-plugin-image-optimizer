@@ -58,7 +58,7 @@ module.exports = (plugin) => {
 
 ### 3. Add config options
 
-Configure the plugin in the `.config/plugins.js/ts` file of your Strapi project.
+Configure the plugin in the `.config/plugins.(js/ts)` file of your Strapi project.
 
 ## Config options
 
@@ -142,6 +142,8 @@ type ImageFit =
 
 ### Example config
 
+The following config would be a good starting point for your project.
+
 ```typescript
 // ./config/plugins.ts
 
@@ -180,6 +182,25 @@ export default ({ env }) => ({
     },
   },
   // ...
+});
+```
+
+If you want type safety, you can extend the configuration with our config typing.
+
+With that approach, you will get the possibility for property IntelliSense and static string type values.
+
+```typescript
+import { Config as ImageOptimizerConfig } from "strapi-plugin-image-optimizer/dist/server/models/config";
+
+// ...
+export default ({ env }) => ({
+  // ...
+  "image-optimizer": {
+    // ...
+    config: {
+      // ...
+    } satisfies ImageOptimizerConfig,
+  },
 });
 ```
 
