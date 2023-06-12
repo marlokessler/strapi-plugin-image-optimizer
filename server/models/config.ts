@@ -88,4 +88,6 @@ export type ImagePosition =
   | "left bottom"
   | "left"
   | "left top"
-  | "center";
+  | "center"
+  | "entropy"
+  | "attention";

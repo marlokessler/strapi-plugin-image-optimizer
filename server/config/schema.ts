@@ -37,6 +37,8 @@ const positions = [
   "left",
   "left top",
   "center",
+  "entropy",
+  "attention",
 ];
 
 const configSchema = object({

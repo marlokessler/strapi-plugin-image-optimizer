@@ -135,7 +135,9 @@ type ImageFit =
   | "left bottom"
   | "left"
   | "left top"
-  | "center";
+  | "center"
+  | "entropy" // only in combination with ImageFit cover
+  | "attention"; // only in combination with ImageFit cover;
 ```
 
 ### Example config
