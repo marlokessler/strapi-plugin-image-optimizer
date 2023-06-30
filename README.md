@@ -64,25 +64,25 @@ Configure the plugin in the `.config/plugins.(js/ts)` file of your Strapi projec
 
 ### Object `Config`
 
-| Option                  | Type                                     | Description                                                                                                                                                     |
-| ----------------------- | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `additionalResolutions` | `number[]` <br/> Min: 0                  | Create additional resolutions for high res displays (e.g. Apples Retina Display which has a resolution of 2x). Default is `[]`.                                 |
-| `exclude`               | [`SourceFormat`](#type-sourceformat)`[]` | Exclude image formats from being optimized. Default is `[]`.                                                                                                    |
-| `formats`               | [`OutputFormat`](#type-outputformat)`[]` | Specifiy the formats images should be transformed to. Specifiying `original` means that the original format is kept. Default is `["original", "webp", "avif"]`. |
-| `include`               | [`SourceFormat`](#type-sourceformat)`[]` | Include image formats that should be optimized. Default is `["jpeg", "jpg", "png"]`.                                                                            |
-| `sizes`<sup>\*</sup>    | [`ImageSize`](#object-imagesize)`[]`     | (required) - Specify the sizes to which the uploaded image should be transformed.                                                                               |
-| `quality`               | `number` <br/> Min: 0 <br/> Max: 100     | Specific the image quality the output should be rendered in. Default is `80`.                                                                                   |
+| Option                  | Type                                     | Description                                                                                                                                                                                                                                    |
+| ----------------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `additionalResolutions` | `number[]` <br/> Min: 0                  | Create additional resolutions for high res displays (e.g. Apples Retina Display which has a resolution of 2x). Default is `[]`.                                                                                                                |
+| `exclude`               | [`SourceFormat`](#type-sourceformat)`[]` | Exclude image formats from being optimized. Default is `[]`.                                                                                                                                                                                   |
+| `formats`               | [`OutputFormat`](#type-outputformat)`[]` | Specifiy the formats images should be transformed to. Specifiying `original` means that the original format is kept. Default is `["original", "webp", "avif"]`. Only `jpeg`/`jpg`/`png`/`webp`/`avif`/`heif`/`tiff`/`tif` will adjust quality. |
+| `include`               | [`SourceFormat`](#type-sourceformat)`[]` | Include image formats that should be optimized. Default is `["jpeg", "jpg", "png"]`.                                                                                                                                                           |
+| `sizes`<sup>\*</sup>    | [`ImageSize`](#object-imagesize)`[]`     | (required) - Specify the sizes to which the uploaded image should be transformed.                                                                                                                                                              |
+| `quality`               | `number` <br/> Min: 0 <br/> Max: 100     | Specific the image quality the output should be rendered in. Default is `80`.                                                                                                                                                                  |
 
 ### Object `ImageSize`
 
-| Option               | Type                                   | Description                                                                                                                        |
-| -------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `fit`                | [`ImageFit`](#type-imagefit)           | The image fit mode if both width and height are specified. Default is `cover`.                                                     |
-| `height`             | `number` <br/> Min: 0                  | The height of the output image in pixels. If only height is specified then the width is calculated with the original aspect ratio. |
-| `name`<sup>\*</sup>  | `string` <br/> Min: 0                  | (required) - The name of the size. This will be used as part of generated image's name and url.                                    |
-| `position`           | [`ImagePosition`](#type-imageposition) | The position of the image within the output image. This option is only used when fit is cover or contain. Default is `center`.     |
-| `width`              | `number` <br/> Min: 0                  | The width of the output image in pixels. If only width is specified then the height is calculated with the original aspect ratio.  |
-| `withoutEnlargement` | `boolean`                              | When true, the image will not be enlarged if the input image is already smaller than the required dimensions. Default is `false`.  |
+| Option               | Type                                   | Description                                                                                                                                                                                                                |
+| -------------------- | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fit`                | [`ImageFit`](#type-imagefit)           | The image fit mode if both width and height are specified. Default is `cover`.                                                                                                                                             |
+| `height`             | `number` <br/> Min: 0                  | The height of the output image in pixels. If only height is specified then the width is calculated with the original aspect ratio. If both width and height are not set, the output will be the same size as the original. |
+| `name`<sup>\*</sup>  | `string` <br/> Min: 0                  | (required) - The name of the size. This will be used as part of generated image's name and url.                                                                                                                            |
+| `position`           | [`ImagePosition`](#type-imageposition) | The position of the image within the output image. This option is only used when fit is cover or contain. Default is `center`.                                                                                             |
+| `width`              | `number` <br/> Min: 0                  | The width of the output image in pixels. If only width is specified then the height is calculated with the original aspect ratio. If both width and height are not set, the output will be the same size as the original.  |
+| `withoutEnlargement` | `boolean`                              | When true, the image will not be enlarged if the input image is already smaller than the required dimensions. Default is `false`.                                                                                          |
 
 ### Type `SourceFormat`
 
@@ -161,20 +161,26 @@ export default ({ env }) => ({
           width: 300,
         },
         {
-          name: "s",
+          name: "sm",
           width: 768,
         },
         {
-          name: "m",
+          name: "md",
           width: 1280,
         },
         {
-          name: "l",
+          name: "lg",
           width: 1920,
         },
         {
           name: "xl",
           width: 2840,
+          // Won't create an image larger than the original size
+          withoutEnlargement: true,
+        },
+        {
+          // Uses original size but still transforms for formats
+          name: "original",
         },
       ],
       additionalResolutions: [1.5, 3],

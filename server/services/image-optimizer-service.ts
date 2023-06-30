@@ -5,16 +5,15 @@ import sharp, { Sharp, Metadata } from "sharp";
 import { bytesToKbytes } from "@strapi/utils/lib/file";
 import imageManipulation from "@strapi/plugin-upload/server/services/image-manipulation";
 
-import settingsService from "./settings-service";
 import {
   OutputFormat,
   ImageSize,
-  InvalidParametersError,
   File,
   SourceFile,
   StrapiImageFormat,
   SourceFormat,
 } from "../models";
+import settingsService from "./settings-service";
 
 const defaultFormats: OutputFormat[] = ["original", "webp", "avif"];
 const defaultInclude: SourceFormat[] = ["jpeg", "jpg", "png"];
@@ -93,7 +92,12 @@ async function resizeFileTo(
     sharpInstance = sharpInstance.toFormat(format);
   }
   sharpInstance = sharpAddFormatSettings(sharpInstance, { quality });
-  sharpInstance = sharpAddResizeSettings(sharpInstance, size, resizeFactor);
+  sharpInstance = sharpAddResizeSettings(
+    sharpInstance,
+    size,
+    resizeFactor,
+    sourceFile
+  );
 
   const imageHash = `${sizeName}_${sourceFile.hash}`;
   const filePath = join(sourceFile.tmpWorkingDirectory, imageHash);
@@ -118,6 +122,7 @@ function sharpAddFormatSettings(
   sharpInstance: Sharp,
   { quality }: { quality?: number }
 ): Sharp {
+  // TODO: Add jxl when it's no longer experimental
   return sharpInstance
     .jpeg({ quality, progressive: true, force: false })
     .png({
@@ -126,22 +131,25 @@ function sharpAddFormatSettings(
       force: false,
     })
     .webp({ quality, force: false })
+    .avif({ quality, force: false })
+    .heif({ quality, force: false })
     .tiff({ quality, force: false });
 }
 
 function sharpAddResizeSettings(
   sharpInstance: Sharp,
   size: ImageSize,
-  factor: number
+  factor: number,
+  sourceFile: SourceFile
 ): Sharp {
-  if (!size.width && !size.height) {
-    throw new InvalidParametersError(
-      "Either width or height must be specified."
-    );
-  }
+  const originalSize = !size.width && !size.height;
+  const { width, height } = originalSize
+    ? { width: sourceFile.width, height: sourceFile.height }
+    : { width: size.width, height: size.height };
+
   return sharpInstance.resize({
-    width: size.width && size.width * factor,
-    height: size.height && size.height * factor,
+    width: width ? width * factor : undefined,
+    height: height ? height * factor : undefined,
     fit: size.fit,
     // Position "center" cannot be set since it's the default (see: https://sharp.pixelplumbing.com/api-resize#resize).
     position: size.position === "center" ? undefined : size.position,
