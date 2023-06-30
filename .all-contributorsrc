@@ -35,6 +35,16 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "Cretezy",
+      "name": "Cretezy",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2672503?v=4",
+      "profile": "https://cretezy.com",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
