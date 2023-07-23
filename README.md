@@ -29,7 +29,7 @@
 
 ## Requirements
 
-Strapi version >= v4.6.x
+Strapi version >= v4.11.7
 
 ## Note
 
@@ -58,7 +58,7 @@ module.exports = (plugin) => {
 
 ### 3. Add config options
 
-Configure the plugin in the `.config/plugins.(js/ts)` file of your Strapi project.
+Configure the plugin in the `config/plugins.(js/ts)` file of your Strapi project.
 
 ## Config options
 

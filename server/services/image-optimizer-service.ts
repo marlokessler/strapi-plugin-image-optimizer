@@ -2,7 +2,7 @@ import { ReadStream, createReadStream, createWriteStream } from "fs";
 import { join } from "path";
 import sharp, { Sharp, Metadata } from "sharp";
 
-import { bytesToKbytes } from "@strapi/utils/lib/file";
+import { bytesToKbytes } from "@strapi/utils/dist/file";
 import imageManipulation from "@strapi/plugin-upload/server/services/image-manipulation";
 
 import {
