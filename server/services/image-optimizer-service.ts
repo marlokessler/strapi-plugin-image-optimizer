@@ -99,7 +99,7 @@ async function resizeFileTo(
     sourceFile
   );
 
-  const imageHash = `${sizeName}_${sourceFile.hash}`;
+  const imageHash = `${sizeName}_${format}_${sourceFile.hash}`;
   const filePath = join(sourceFile.tmpWorkingDirectory, imageHash);
   const newImageStream = sourceFile.getStream().pipe(sharpInstance);
   await writeStreamToFile(newImageStream, filePath);
