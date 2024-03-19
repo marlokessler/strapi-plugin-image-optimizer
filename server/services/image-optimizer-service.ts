@@ -1,9 +1,11 @@
 import { ReadStream, createReadStream, createWriteStream } from "fs";
 import { join } from "path";
 import sharp, { Sharp, Metadata } from "sharp";
+import { file as fileUtils } from '@strapi/utils';
 
-import { bytesToKbytes } from "@strapi/utils/dist/file";
-import imageManipulation from "@strapi/plugin-upload/server/services/image-manipulation";
+// @ts-ignore - No types available
+import pluginUpload from "@strapi/plugin-upload/strapi-server";
+const imageManipulation = pluginUpload().services["image-manipulation"];
 
 import {
   OutputFormat,
@@ -113,7 +115,7 @@ async function resizeFileTo(
     path: sourceFile.path,
     width: metadata.width,
     height: metadata.height,
-    size: metadata.size && bytesToKbytes(metadata.size),
+    size: metadata.size && fileUtils.bytesToKbytes(metadata.size),
     getStream: () => createReadStream(filePath),
   };
 }
