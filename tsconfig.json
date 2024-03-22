@@ -3,7 +3,7 @@
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": ".",
-    "declaration": true,
+    "declaration": true
   },
   "include": [
     // Include the root directory
