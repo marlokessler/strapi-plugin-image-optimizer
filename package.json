@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-image-optimizer",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Optimize your images for desktop, tablet and mobile and different image formats.",
   "homepage": "https://github.com/marlokessler/strapi-plugin-image-optimizer#readme",
   "license": "MIT",
