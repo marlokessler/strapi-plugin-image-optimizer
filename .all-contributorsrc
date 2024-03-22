@@ -55,6 +55,16 @@
         "bug",
         "code"
       ]
+    },
+    {
+      "login": "BirknerAlex",
+      "name": "Alexander Birkner",
+      "avatar_url": "https://avatars.githubusercontent.com/u/779751?v=4",
+      "profile": "https://tyrola.dev",
+      "contributions": [
+        "bug",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
