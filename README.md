@@ -1,3 +1,16 @@
+# ⚠️ Looking for a Maintainer ⚠️
+
+Hi there, I do not use Strapi anymore (Actually I never really used it). I evaluated Strapi as a headless CMS a while ago and since I was missing a functionallity to scale and format uploaded images, I was happy to find that [@nicolashmln](https://github.com/nicolashmln) already created a great plugin for this. Nevertheless, it has only one issue (at least it was an issue for me): The image sizes and format to transform the uploaded images to could not be declared in code. Therefore, I created a fork which I then published. Since I expected to use Strapi as CMS (because it made a good impression) I thought it makes sense to share this with the world.
+
+However, some weeks later I decided to move from Strapi due to a bunch of reasons which are not really important at this point (self-hosting, etc.). This plugin however is forced to use a semi-internal Strapi API which was and is sometimes subject to changes (because this is the only reason to hook into the upload process). Therefore, sometimes changes are required or otherwise the plugin even breaks with minor changes (which is pretty bad☹️). However, since I do not use Strapi anymore I think it is better to pass this plugin to somebody who knows Strapi better than I do. **If you use Strapi and this plugin regularly and feel confident to take over the maintainership of this repo contact me on LinkedIn or Instagram under @marlokessler.**
+
+Thank you!
+
+Cheers
+Marlo
+
+---
+
 <img src="assets/logo.png" alt="image optimizer logo" width="75"/>
 
 # Strapi plugin image optimizer
