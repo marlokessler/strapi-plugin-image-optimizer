@@ -6,6 +6,8 @@ export interface File {
   mime: string;
   path?: string;
   ext: string;
+  folder?: string;
+  folderPath?: string;
   width?: number;
   height?: number;
   size?: number;
