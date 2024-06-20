@@ -113,6 +113,8 @@ async function resizeFileTo(
     ext: getFileExtension(sourceFile, format),
     mime: getFileMimeType(sourceFile, format),
     path: sourceFile.path,
+    folder: sourceFile.folder,
+    folderPath: sourceFile.folderPath,
     width: metadata.width,
     height: metadata.height,
     size: metadata.size && fileUtils.bytesToKbytes(metadata.size),
